@@ -34,13 +34,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td>X</td>
-						<td>Y</td>
-						<td>2</td>
-						<td>Supprimer - Modifier</td>
-					</tr>
+					
 				</tbody>
 			</table>
 		</div>
@@ -72,13 +66,22 @@
   				// alert(result);
   				console.log(result);
   				
-  				// effacer le contenu
-  				$("#users tbody").empty();
-  				
   				// boucler sur le tabler
-  				result.each(function() {
+  				$.each(result, function(i, item) {
+  					
   					// console.log($(this));
-  				}
+  					
+  					var tr = "<tr>";
+  					tr += "<td>" + item.id + "</td>";
+  					tr += "<td>" + $(this)[0].firstName + "</td>";
+  					tr += "<td>" + $(this)[0].lastName + "</td>";
+  					tr += "<td>" + $(this)[0].login + "</td>";
+  					tr += "<td></td>";
+  					tr += "</tr>";
+  					
+  					$("#users tbody").append(tr);
+  					
+  				});
   			}
   		});
   	</script>

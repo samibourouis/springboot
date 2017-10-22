@@ -10,16 +10,13 @@ import tn.formation.boot.model.entity.User;
 
 @RepositoryRestResource(path = "user")
 
-public interface UserRepository 
-	extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
 	// Select * FROM user WHERE lastname = $lastname ORDER BY firstname ASC
-	List<User> findByLastnameOrderByFirstnameAsc(String lastname);
-	
-	// Select * FROM user WHERE emailAddress = $emailAddress
-	@Query("select u from User u where u.emailAddress = ?1")
-	User findByEmailAddress(String emailAddress);
-	
+	List<User> findByLastNameOrderByFirstNameAsc(String lastname);
+
+	// Select * FROM user WHERE lastname = $lastname
+	@Query("select u from User u where u.lastName = ?1")
+	User findByEmailAddress(String lastname);
+
 }
-
-
